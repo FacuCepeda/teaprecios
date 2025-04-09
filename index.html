@@ -27,6 +27,8 @@
         class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
     </div>
+    <div id="resultados" class="resultados-container"></div>
+
 
     <section class="grid gap-6 md:grid-cols-3">
       <div class="border p-4 rounded-lg shadow hover:shadow-md transition">
@@ -59,5 +61,69 @@
       <a href="#" class="hover:underline">Contacto</a>
     </p>
   </footer>
+  <script>
+    const form = document.querySelector('form');
+    const resultados = document.getElementById('resultados');
+  
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      resultados.innerHTML = '<p>Buscando precios...</p>';
+  
+      const producto = document.getElementById('busqueda').value;
+      const url = `https://teaprecios-backend.vercel.app/buscar?producto=${encodeURIComponent(producto)}`;
+  
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+  
+        if (data.length === 0) {
+          resultados.innerHTML = '<p>No se encontraron resultados.</p>';
+          return;
+        }
+  
+        resultados.innerHTML = '';
+        data.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'resultado';
+  
+          card.innerHTML = `
+            <img src="${item.imagen || ''}" alt="${item.titulo}" width="100" />
+            <div>
+              <h3>${item.titulo}</h3>
+              <p><strong>Precio:</strong> $${item.precio}</p>
+              <p><strong>Fuente:</strong> ${item.fuente}</p>
+              <a href="${item.link}" target="_blank">Ver producto</a>
+            </div>
+          `;
+  
+          resultados.appendChild(card);
+        });
+      } catch (err) {
+        resultados.innerHTML = '<p>Error al obtener los resultados.</p>';
+        console.error(err);
+      }
+    });
+  </script>
+  <style>
+    .resultado {
+      display: flex;
+      gap: 1rem;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      background: #f9f9f9;
+    }
+  
+    .resultado img {
+      border-radius: 8px;
+    }
+  
+    .resultados-container {
+      margin-top: 2rem;
+    }
+  </style>
+  
+  
 </body>
 </html>
