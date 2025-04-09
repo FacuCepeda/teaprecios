@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TeAprecios - Comparador de Precios</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-800 font-sans">
+  <header class="bg-blue-600 text-white p-4 shadow-md">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">TeAprecios</h1>
+      <nav>
+        <a href="#" class="text-white hover:underline">Inicio</a>
+        <a href="#contacto" class="ml-4 text-white hover:underline">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto py-12 px-4">
+    <h2 class="text-3xl font-semibold text-center mb-6">Compará precios, ahorrá dinero</h2>
+
+    <div class="mb-8">
+      <input 
+        type="text" 
+        placeholder="Buscar un producto..." 
+        class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+    </div>
+
+    <section class="grid gap-6 md:grid-cols-3">
+      <div class="border p-4 rounded-lg shadow hover:shadow-md transition">
+        <img src="https://via.placeholder.com/300x200" alt="Producto" class="w-full h-40 object-cover rounded" />
+        <h3 class="mt-4 text-lg font-semibold">Producto 1</h3>
+        <p class="text-blue-600 font-bold mt-2">$9.999</p>
+        <a href="#" class="block mt-3 text-center bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Ver en Amazon</a>
+      </div>
+
+      <div class="border p-4 rounded-lg shadow hover:shadow-md transition">
+        <img src="https://via.placeholder.com/300x200" alt="Producto" class="w-full h-40 object-cover rounded" />
+        <h3 class="mt-4 text-lg font-semibold">Producto 2</h3>
+        <p class="text-blue-600 font-bold mt-2">$12.450</p>
+        <a href="#" class="block mt-3 text-center bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Ver en Amazon</a>
+      </div>
+
+      <div class="border p-4 rounded-lg shadow hover:shadow-md transition">
+        <img src="https://via.placeholder.com/300x200" alt="Producto" class="w-full h-40 object-cover rounded" />
+        <h3 class="mt-4 text-lg font-semibold">Producto 3</h3>
+        <p class="text-blue-600 font-bold mt-2">$7.299</p>
+        <a href="#" class="block mt-3 text-center bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Ver en Amazon</a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contacto" class="bg-gray-100 p-6 text-center text-sm text-gray-600">
+    <p>&copy; 2025 TeAprecios. Todos los derechos reservados.</p>
+    <p class="mt-2">
+      <a href="#" class="hover:underline">Política de privacidad</a> | 
+      <a href="#" class="hover:underline">Contacto</a>
+    </p>
+  </footer>
+</body>
+</html>
