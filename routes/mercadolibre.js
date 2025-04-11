@@ -8,7 +8,7 @@ const CLIENT_SECRET = process.env.ML_CLIENT_SECRET;
 const REDIRECT_URI = process.env.ML_REDIRECT_URI;
 
 // 1. Redirigir al login de MercadoLibre
-router.get('/login', (req, res) => {
+router.get('/iniciar', (req, res) => {
   const url = `https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}`;
   res.redirect(url);
 });
