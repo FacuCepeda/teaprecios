@@ -7,19 +7,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Rutas
 const busquedaRoutes = require('./routes/busqueda');
 const mercadolibreRoutes = require('./routes/mercadolibre');
 const amazonRoutes = require('./routes/amazon');
-const testUserRoutes = require('./routes/testUser'); // 👈 NUEVO
+const testUserRoutes = require('./routes/testUser'); // opcional
 
 app.use('/busqueda', busquedaRoutes);
 app.use('/mercadolibre', mercadolibreRoutes);
 app.use('/amazon', amazonRoutes);
-app.use('/testuser', testUserRoutes); // 👈 NUEVO
-
-app.get('/', (req, res) => {
-    res.send('🚀 TeAprecios API funcionando correctamente');
-  });
-  
+app.use('/testuser', testUserRoutes);
 
 module.exports = app;
