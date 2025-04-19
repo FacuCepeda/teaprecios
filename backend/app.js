@@ -18,4 +18,9 @@ app.use('/mercadolibre', mercadolibreRoutes);
 app.use('/amazon', amazonRoutes);
 app.use('/testuser', testUserRoutes);
 
+// Ruta raíz para testear el backend
+app.get('/', (req, res) => {
+  res.send('✅ API TeAprecios funcionando correctamente');
+});
+
 module.exports = app;
