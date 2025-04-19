@@ -13,14 +13,14 @@ const mercadolibreRoutes = require('./routes/mercadolibre');
 const amazonRoutes = require('./routes/amazon');
 const testUserRoutes = require('./routes/testUser'); // opcional
 
-app.use('/busqueda', busquedaRoutes);
+app.use('/buscar', busquedaRoutes);
 app.use('/mercadolibre', mercadolibreRoutes);
 app.use('/amazon', amazonRoutes);
 app.use('/testuser', testUserRoutes);
 
 // Ruta raíz para testear el backend
 app.get('/', (req, res) => {
-  res.send('✅ API TeAprecios funcionando correctamente');
+    res.send('✅ API TeAprecios funcionando correctamente');
 });
 
 module.exports = app;
